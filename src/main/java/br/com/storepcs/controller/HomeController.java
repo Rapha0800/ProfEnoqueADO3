@@ -11,8 +11,15 @@ public class HomeController {
     @GetMapping("/")
     public String Home()
     {
-        return "Dashboard";
+        return "redirect:/PCS";
     }
+
+    @GetMapping("/PCS")
+    public String getCars()
+
+
+
+
 
 
 }
