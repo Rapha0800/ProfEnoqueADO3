@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -62,6 +63,37 @@ public class AdimnController {
                 return "DashboardADM";
 
     }
+
+
+    @GetMapping("/admin/pcs/atualizar")
+    public String atualizar(@RequestParam("id") String id, Model m)
+    {
+        PCDTO pc = s.findyById(id);
+
+        if(pc == null)
+        {
+
+            return "redirect:/admin/pcs";
+        }
+
+        m.addAttribute("PCDTO", pc);
+
+        return "Home";
+
+
+    }
+
+    @GetMapping("/admin/pcs/deletar")
+    public String deletePC(@RequestParam("id")  String id, Model m)
+    {
+        s.deleteByID(id);
+
+        List<PCDTO>
+
+    }
+
+
+
 
 
 
