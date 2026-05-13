@@ -16,25 +16,25 @@
 
     <h1>Cadastrar Novo Computador</h1>
 
-    <form action="#" method="post">
+    <form action="#"  th:object="${PCDTO}}" method="post">
 
         <input type="hidden"/>
 
         <div class="mb-3">
             <label for="Proc" class="form-label">Processador:</label>
-            <input type="text" id="Proc" class="form-control">
+            <input type="text" id="Proc" th:field="*{Processador}" class="form-control">
             <span class="error" ></span>
         </div>
 
         <div class="mb-3">
             <label for="PV" class="form-label">Placa de video:</label>
-            <input type="text" id="PV"  class="form-control">
+            <input type="text" id="PV" th:field="PlacaDeVideo" class="form-control">
             <span class="error" ></span>
         </div>
 
         <div class="mb-3">
             <label for="Ram" class="form-label">memoria ram:</label>
-            <input type="text" id="Ram"  class="form-control">
+            <input type="text" id="Ram" th:field="Ram" class="form-control">
             <span class="error" ></span>
         </div>
 
