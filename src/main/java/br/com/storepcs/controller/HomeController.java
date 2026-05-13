@@ -17,12 +17,12 @@ public class HomeController {
     private PCService s;
 
 
-//    @Autowired
-//    public HomeController(PCService s)
-//    {
-//        this.s = s;
-//
-//    }
+    @Autowired
+    public HomeController(PCService s)
+    {
+        this.s = s;
+
+    }
 
 
     @GetMapping("/")
@@ -34,8 +34,8 @@ public class HomeController {
     @GetMapping("/PCS")
     public String getPCS(Model model)
     {
-//        List<PCDTO> allPCS = s.findAll();
-//        model.addAttribute("PCS", allPCS);
+        List<PCDTO> allPCS = s.findAll();
+        model.addAttribute("PCS", allPCS);
         return "Dashboard";
 
     }

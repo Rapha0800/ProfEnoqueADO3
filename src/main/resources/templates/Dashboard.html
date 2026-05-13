@@ -12,13 +12,13 @@
 
     <h1>Mostrar PCS Disponiveis</h1>
 
-    <div th:each="car : ${cars}">
+    <div th:each="pc : ${PCS}">
 
         <div class="card" style="width: 18rem;">
             <img src="https://img.freepik.com/psd-premium/carro-de-luxo-sobre-um-fundo-transparente_574412-4171.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title" th:text="${car.name}"></h5>
-                <p class="card-text"  th:text="${car.brand}"></p>
+                <h5 class="card-title" th:text="${pc.Processador}"></h5>
+                <p class="card-text"  th:text="${pc.PlacaDeVideo}"></p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
