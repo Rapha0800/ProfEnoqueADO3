@@ -83,12 +83,14 @@ public class AdimnController {
 
     }
 
-    @GetMapping("/admin/pcs/deletar")
+    @PostMapping("/admin/pcs/deletar")
     public String deletePC(@RequestParam("id")  String id, Model m)
     {
         s.deleteByID(id);
 
-        List<PCDTO>
+        List<PCDTO> pcs = s.findAll();
+        m.addAttribute("PCS", pcs);
+        return "redirect:/admin/pcs";
 
     }
 
