@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar PCS</title>
@@ -28,9 +28,9 @@
             <td th:text="${pc.Ram}"></td>
             <td>
 
-                <a th:href="@{/admin/pcs/atualizar(id=${pc.id})}" class="btn btn-secondary btn-sm">Atualizar</a>
+                <a th:href="@{/admin/pcs/atualizar(id=${pc.id})}" class="btn btn-secondary btn-sm" sec:authorize="hasRole('ADMIN')">Atualizar</a>
 
-                <form th:action="@{/admin/pcs/deletar}" method="post" style="display:inline" >
+                <form th:action="@{/admin/pcs/deletar}" method="post" style="display:inline" sec:authorize="hasRole('ADMIN')">
                     <input type="hidden" name="id" th:value="${pc.id}"/>
                     <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                 </form>

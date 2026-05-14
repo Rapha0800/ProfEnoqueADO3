@@ -4,9 +4,13 @@ package br.com.storepcs.controller;
 import br.com.storepcs.Service.PCService;
 import br.com.storepcs.dto.PCDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,6 +29,17 @@ public class AdimnController {
     }
 
 
+
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/api/admin/stats")
+    public ResponseEntity<?> stats() { return ResponseEntity.ok().build(); }
+
+    @Secured("ROLE_ADMIN")
+    @PostMapping("/api/admin/create")
+    public ResponseEntity<?> create() { return ResponseEntity.ok().build(); }
+
+
     @GetMapping("/admin")
     public String adimnHome(Model m)
     {
@@ -33,6 +48,8 @@ public class AdimnController {
         return "Home";
     }
 
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/admin/pcs")
     public String createPC(PCDTO PC)
     {
@@ -83,6 +100,8 @@ public class AdimnController {
 
     }
 
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/admin/pcs/deletar")
     public String deletePC(@RequestParam("id")  String id, Model m)
     {

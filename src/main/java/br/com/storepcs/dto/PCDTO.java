@@ -8,6 +8,17 @@ public class PCDTO {
     private String PlacaDeVideo;
     private String Ram;
 
+    public PCDTO() {
+
+    }
+
+    public PCDTO(String Proc, String PV, String Ram) {
+
+        this.Processador = Proc;
+        this.PlacaDeVideo = PV;
+        this.Ram = Ram;
+    }
+
     public String getId() {
         return id;
     }
